@@ -30,4 +30,7 @@ Route::get('/about', function () {
 
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     //admin
+    Route::get('/mapel', 'MapelController@index')->name('admin.mapel');
+    Route::get('mapel/create', 'MapelController@create')->name('admin.mapel.create');
+    Route::post('mapel/store', 'MapelController@store')->name('admin.mapel.store');
 });
