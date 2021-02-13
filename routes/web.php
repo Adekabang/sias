@@ -28,6 +28,6 @@ Route::get('/about', function () {
     return view('about');
 })->name('about');
 
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     //admin
-})->middleware('admin');
+});
