@@ -35,14 +35,15 @@
                                 <td>{{ $santri->userprofile->semester }}</td>
                                 <td>{{ $santri->userprofile->tahun_ajaran }}</td>
                                 <td>
-                                    <button class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="top"
+                                    <a href="{{ route('nilai-pelajaran.edit', $santri->id) }}"
+                                        class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="top"
                                         title="Nilai">
                                         <i class="fa fa-book"></i>
-                                    </button>
-                                    <button class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top"
-                                        title="Edit Santri">
+                                    </a>
+                                    <a href="{{ route('santri.edit', $santri->id) }}" class="btn btn-sm btn-primary"
+                                        data-toggle="tooltip" data-placement="top" title="Edit Santri">
                                         <i class="fa fa-user-edit"></i>
-                                    </button>
+                                    </a>
                                     <button class="btn btn-sm btn-danger"
                                         onclick="return confirm('Yakin menghapus Santri?')">
                                         <i class="fa fa-trash"></i>

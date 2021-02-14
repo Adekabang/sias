@@ -55,53 +55,53 @@
             <!-- Divider -->
             <hr class="sidebar-divider">
 
-            <!-- Heading -->
+            {{-- <!-- Heading -->
             <div class="sidebar-heading">
                 {{ __('Settings') }}
-            </div>
+    </div>
 
-            <!-- Nav Item - Profile -->
-            <li class="nav-item {{ Nav::isRoute('profile') }}">
-                <a class="nav-link" href="{{ route('profile') }}">
-                    <i class="fas fa-fw fa-user"></i>
-                    <span>{{ __('Profile') }}</span>
-                </a>
-            </li>
+    <!-- Nav Item - Profile -->
+    <li class="nav-item {{ Nav::isRoute('profile') }}">
+        <a class="nav-link" href="{{ route('profile') }}">
+            <i class="fas fa-fw fa-user"></i>
+            <span>{{ __('Profile') }}</span>
+        </a>
+    </li>
 
-            <!-- Nav Item - About -->
-            <li class="nav-item {{ Nav::isRoute('about') }}">
-                <a class="nav-link" href="{{ route('about') }}">
-                    <i class="fas fa-fw fa-hands-helping"></i>
-                    <span>{{ __('About') }}</span>
-                </a>
-            </li>
+    <!-- Nav Item - About -->
+    <li class="nav-item {{ Nav::isRoute('about') }}">
+        <a class="nav-link" href="{{ route('about') }}">
+            <i class="fas fa-fw fa-hands-helping"></i>
+            <span>{{ __('About') }}</span>
+        </a>
+    </li> --}}
 
-            <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
-            @if(Auth::user()->is_admin)
-            <!-- Nav Item - Mapel -->
-            <li class="nav-item {{ Nav::isRoute('mapel.index') }}">
-                <a class="nav-link" href="{{ route('mapel.index') }}">
-                    <i class="fas fa-fw fa-book"></i>
-                    <span>{{ __('Mata Pelajaran') }}</span>
-                </a>
-            </li>
+    <!-- Divider -->
+    <hr class="sidebar-divider d-none d-md-block">
+    @if(Auth::user()->is_admin)
+    <!-- Nav Item - Mapel -->
+    <li class="nav-item {{ Nav::isRoute('mapel.index') }}">
+        <a class="nav-link" href="{{ route('mapel.index') }}">
+            <i class="fas fa-fw fa-book"></i>
+            <span>{{ __('Mata Pelajaran') }}</span>
+        </a>
+    </li>
 
-            <!-- Nav Item - Santri -->
-            <li class="nav-item {{ Nav::isRoute('santri.index') }}">
-                <a class="nav-link" href="{{ route('santri.index') }}">
-                    <i class="fas fa-fw fa-users"></i>
-                    <span>{{ __('Santri') }}</span>
-                </a>
-            </li>
+    <!-- Nav Item - Santri -->
+    <li class="nav-item {{ Nav::isRoute('santri.index') }}">
+        <a class="nav-link" href="{{ route('santri.index') }}">
+            <i class="fas fa-fw fa-users"></i>
+            <span>{{ __('Santri') }}</span>
+        </a>
+    </li>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
-            @endif
-            < <!-- Sidebar Toggler (Sidebar) -->
-                <div class="text-center d-none d-md-inline">
-                    <button class="rounded-circle border-0" id="sidebarToggle"></button>
-                </div>
+    <!-- Divider -->
+    <hr class="sidebar-divider d-none d-md-block">
+    @endif
+    < <!-- Sidebar Toggler (Sidebar) -->
+        <div class="text-center d-none d-md-inline">
+            <button class="rounded-circle border-0" id="sidebarToggle"></button>
+        </div>
 
         </ul>
         <!-- End of Sidebar -->
@@ -341,47 +341,47 @@
         </div>
         <!-- End of Content Wrapper -->
 
-    </div>
+        </div>
 
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top">
+            <i class="fas fa-angle-up"></i>
+        </a>
 
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">{{ __('Ready to Leave?') }}</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-link" type="button" data-dismiss="modal">{{ __('Cancel') }}</button>
-                    <a class="btn btn-danger" href="{{ route('logout') }}"
-                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        @csrf
-                    </form>
+        <!-- Logout Modal-->
+        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">{{ __('Ready to Leave?') }}</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                    <div class="modal-footer">
+                        <button class="btn btn-link" type="button" data-dismiss="modal">{{ __('Cancel') }}</button>
+                        <a class="btn btn-danger" href="{{ route('logout') }}"
+                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Scripts -->
-    <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('vendor/jquery-easing/jquery.easing.min.js') }}"></script>
-    <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
-    <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.23/js/dataTables.bootstrap4.min.js"></script>
-    <script>
-        // Call the dataTables jQuery plugin
+        <!-- Scripts -->
+        <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('vendor/jquery-easing/jquery.easing.min.js') }}"></script>
+        <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
+        <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.23/js/dataTables.bootstrap4.min.js"></script>
+        <script>
+            // Call the dataTables jQuery plugin
         $(document).ready(function() {
             $('#dataTable').DataTable();
             $(function () {
@@ -389,7 +389,7 @@
             })
         });
 
-    </script>
+        </script>
 </body>
 
 </html>

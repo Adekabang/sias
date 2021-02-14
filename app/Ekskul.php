@@ -4,12 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class MataPelajaran extends Model
+class Ekskul extends Model
 {
     protected $fillable = ['nama'];
 
     public function nilais()
     {
-        return $this->hasMany(NilaiPelajaran::class, 'mata_pelajarans_id');
+        return $this->hasMany(Ekskul::class, 'ekskuls_id');
     }
 }

@@ -17,7 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -34,4 +34,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin', 'auth']], function 
     Route::resource('santri', 'SantriController');
     //mapel
     Route::resource('mapel', 'MapelController');
+    //nilai pelajaran
+    Route::resource('nilai-pelajaran', 'NilaiPelajaranController');
 });

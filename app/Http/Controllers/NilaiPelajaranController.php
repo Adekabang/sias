@@ -4,11 +4,9 @@ namespace App\Http\Controllers;
 
 use App\MataPelajaran;
 use App\NilaiPelajaran;
-use App\User;
-use App\UserProfile;
 use Illuminate\Http\Request;
 
-class SantriController extends Controller
+class NilaiPelajaranController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +15,7 @@ class SantriController extends Controller
      */
     public function index()
     {
-        $santris = User::where('is_admin', '==', 0)->get();
-        return view('admin.santri.index')->with(['santris' => $santris]);
+        //
     }
 
     /**
@@ -28,7 +25,7 @@ class SantriController extends Controller
      */
     public function create()
     {
-        return view('admin.santri.create');
+        //
     }
 
     /**
@@ -39,27 +36,7 @@ class SantriController extends Controller
      */
     public function store(Request $request)
     {
-        $user = User::create([
-            'name' => $request->nama,
-            'username' => $request->username,
-            'email' => $request->email,
-            'password' => $request->password
-        ]);
-        UserProfile::create([
-            'users_id' => $user->id,
-            'kelas' => $request->kelas,
-            'semester' => $request->semester,
-            'tahun_ajaran' => $request->tahun_ajaran
-        ]);
-        foreach (MataPelajaran::all() as $pelajaran) {
-            NilaiPelajaran::create([
-                'users_id' => $user->id,
-                'mata_pelajarans_id' => $pelajaran->id,
-                'nilai' => 0
-            ]);
-        }
-
-        return redirect()->route('santri.index');
+        //
     }
 
     /**
@@ -81,11 +58,16 @@ class SantriController extends Controller
      */
     public function edit($id)
     {
-        $santri = User::find($id);
-        $santriProfile = UserProfile::where('users_id', $id)->first();
-        return view('admin.santri.edit')->with([
-            'santri' => $santri,
-            'santriProfile' => $santriProfile
+        // $pelajaran = MataPelajaran::with('nilais')->whereHas('nilais', function ($query) use ($id) {
+        //     $query->where('users_id', $id);
+        // })->get();
+        // $pelajaran = MataPelajaran::all();
+        $data = NilaiPelajaran::where('users_id', $id)->get();
+        // dd($data);
+        return view('admin.nilai.edit')->with([
+            // 'allPelajaran' => $pelajaran,
+            'allNilai' => $data,
+            'id' => $id
         ]);
     }
 
