@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\MataPelajaran;
+use App\User;
+use App\UserProfile;
 use Illuminate\Http\Request;
 
-class MapelController extends Controller
+class SantriController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +15,8 @@ class MapelController extends Controller
      */
     public function index()
     {
-        $mapel = MataPelajaran::all();
-        return view('admin.mapel.index')->with(['mapel' => $mapel]);
+        $santris = User::where('is_admin', '==', 0)->get();
+        return view('admin.santri.index')->with(['santris' => $santris]);
     }
 
     /**
@@ -25,7 +26,7 @@ class MapelController extends Controller
      */
     public function create()
     {
-        return view('admin.mapel.create');
+        return view('admin.santri.create');
     }
 
     /**
@@ -36,9 +37,19 @@ class MapelController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
-        MataPelajaran::create($data);
-        return redirect()->route('mapel.index');
+        $user = User::create([
+            'name' => $request->nama,
+            'username' => $request->username,
+            'email' => $request->email,
+            'password' => $request->password
+        ]);
+        UserProfile::create([
+            'users_id' => $user->id,
+            'kelas' => $request->kelas,
+            'semester' => $request->semester,
+            'tahun_ajaran' => $request->tahun_ajaran
+        ]);
+        return redirect()->route('santri.index');
     }
 
     /**

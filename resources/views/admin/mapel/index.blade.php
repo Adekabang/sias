@@ -7,7 +7,7 @@
 <div class="card shadow mb-4">
     <div class="card-header py-3 d-flex justify-content-between align-items-center">
         <h6 class="m-0 font-weight-bold text-primary">List Mata Pelajaran</h6>
-        <a href="{{ route('admin.mapel.create') }}" class="btn btn-sm btn-primary">+ Tambah Mata Pelajaran</a>
+        <a href="{{ route('mapel.create') }}" class="btn btn-sm btn-primary">+ Tambah Mata Pelajaran</a>
     </div>
     <div class="card-body">
         <div class="table-responsive">

@@ -78,11 +78,30 @@
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
+            @if(Auth::user()->is_admin)
+            <!-- Nav Item - Mapel -->
+            <li class="nav-item {{ Nav::isRoute('mapel.index') }}">
+                <a class="nav-link" href="{{ route('mapel.index') }}">
+                    <i class="fas fa-fw fa-book"></i>
+                    <span>{{ __('Mata Pelajaran') }}</span>
+                </a>
+            </li>
 
-            <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
+            <!-- Nav Item - Santri -->
+            <li class="nav-item {{ Nav::isRoute('santri.index') }}">
+                <a class="nav-link" href="{{ route('santri.index') }}">
+                    <i class="fas fa-fw fa-users"></i>
+                    <span>{{ __('Santri') }}</span>
+                </a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+            @endif
+            < <!-- Sidebar Toggler (Sidebar) -->
+                <div class="text-center d-none d-md-inline">
+                    <button class="rounded-circle border-0" id="sidebarToggle"></button>
+                </div>
 
         </ul>
         <!-- End of Sidebar -->
@@ -355,6 +374,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('vendor/jquery-easing/jquery.easing.min.js') }}"></script>
     <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
@@ -364,7 +384,11 @@
         // Call the dataTables jQuery plugin
         $(document).ready(function() {
             $('#dataTable').DataTable();
+            $(function () {
+                $('[data-toggle="tooltip"]').tooltip()
+            })
         });
+
     </script>
 </body>
 

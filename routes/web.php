@@ -28,9 +28,10 @@ Route::get('/about', function () {
     return view('about');
 })->name('about');
 
-Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
+Route::group(['prefix' => 'admin', 'middleware' => ['admin', 'auth']], function () {
     //admin
-    Route::get('/mapel', 'MapelController@index')->name('admin.mapel');
-    Route::get('mapel/create', 'MapelController@create')->name('admin.mapel.create');
-    Route::post('mapel/store', 'MapelController@store')->name('admin.mapel.store');
+    //santri
+    Route::resource('santri', 'SantriController');
+    //mapel
+    Route::resource('mapel', 'MapelController');
 });

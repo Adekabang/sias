@@ -13,7 +13,7 @@
         </div>
 
         <div class="card-body">
-            <form method="POST" action="{{ route('admin.mapel.store') }}" autocomplete="off">
+            <form method="POST" action="{{ route('mapel.store') }}" autocomplete="off">
                 @csrf
                 <div class="pl-lg-4">
                     <div class="row">
