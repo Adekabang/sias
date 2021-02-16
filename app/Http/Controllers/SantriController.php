@@ -17,7 +17,7 @@ class SantriController extends Controller
      */
     public function index()
     {
-        $santris = User::where('is_admin', '==', 0)->get();
+        $santris = User::where('is_admin', '=', 0)->get();
         return view('admin.santri.index')->with(['santris' => $santris]);
     }
 
