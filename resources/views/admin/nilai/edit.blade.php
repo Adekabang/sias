@@ -5,7 +5,13 @@
 <!-- Page Heading -->
 <h1 class="h3 mb-4 text-gray-800">{{ __('Nilai Santri') }}</h1>
 <div class="col">
-
+    @if (session('success'))
+    <div class="success alert-success border-left-success" role="success">
+        <span class="pl-4  py-4">
+            {{ session('success') }}
+        </span>
+    </div>
+    @endif
     <div class="card shadow mb-4">
 
         <div class="card-body">
@@ -22,7 +28,7 @@
                                     <span class="small text-danger">*</span>
                                 </label>
                                 <input type="number" min="0" max="100" id="{{ $nilai->mata_pelajaran->nama }}"
-                                    class="form-control" name="{{ $nilai->mata_pelajaran->nama }}"
+                                    class="form-control" name="{{ $nilai->id }}"
                                     placeholder="{{ $nilai->mata_pelajaran->nama }}" value="{{$nilai->nilai}}">
                             </div>
                             @endforeach

@@ -98,7 +98,15 @@ class SantriController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // dd($request);
+        foreach ($request->except(['_token', '_method']) as $index => $nilai) {
+            $data = NilaiPelajaran::find($index);
+            // dd($data, $nilai);
+            $data->nilai = $nilai;
+            $data->save();
+        }
+
+        return redirect()->back()->withSuccess('Nilai updated successfully.');
     }
 
     /**

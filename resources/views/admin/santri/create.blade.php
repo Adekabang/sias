@@ -27,7 +27,6 @@
                             <div class="form-group">
                                 <label class="form-control-label" for="username">Nomor Induk Santri
                                     <span class="small text-danger">*</span>
-                                    Ekskul
                                     <input type="text" id="username" class="form-control" name="username"
                                         placeholder="NIS">
                             </div>
