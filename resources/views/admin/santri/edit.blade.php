@@ -5,7 +5,13 @@
 <!-- Page Heading -->
 <h1 class="h3 mb-4 text-gray-800">{{ __('Santri') }}</h1>
 <div class="col">
-
+    @if (session('success'))
+    <div class="success alert-success border-left-success" role="success">
+        <span class="pl-4  py-4">
+            {{ session('success') }}
+        </span>
+    </div>
+    @endif
     <div class="card shadow mb-4">
 
         <div class="card-header py-3">
@@ -15,6 +21,7 @@
         <div class="card-body">
             <form method="POST" action="{{ route('santri.update', $santri->id) }}" autocomplete="off">
                 @csrf
+                @method('PUT')
                 <div class="pl-lg-4">
                     <div class="row">
                         <div class="col">

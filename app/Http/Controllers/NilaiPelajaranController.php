@@ -80,7 +80,13 @@ class NilaiPelajaranController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        foreach ($request->except(['_token', '_method']) as $index => $nilai) {
+            $data = NilaiPelajaran::find($index);
+            $data->nilai = $nilai;
+            $data->save();
+        }
+
+        return redirect()->back()->withSuccess('Nilai updated successfully.');
     }
 
     /**

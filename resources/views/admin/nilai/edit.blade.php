@@ -15,7 +15,7 @@
     <div class="card shadow mb-4">
 
         <div class="card-body">
-            <form method="POST" action="{{ route('santri.update', $id) }}" autocomplete="off">
+            <form method="POST" action="{{ route('nilai-pelajaran.update', $id) }}" autocomplete="off">
                 @csrf
                 @method('PUT')
                 <div class="pl-lg-4">

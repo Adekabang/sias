@@ -98,15 +98,18 @@ class SantriController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // dd($request);
-        foreach ($request->except(['_token', '_method']) as $index => $nilai) {
-            $data = NilaiPelajaran::find($index);
-            // dd($data, $nilai);
-            $data->nilai = $nilai;
-            $data->save();
-        }
+        $santri = User::find($id);
+        $santri->name = $request->nama;
+        $santri->username = $request->username;
+        $santri->email = $request->email;
+        $santriProfile = UserProfile::where('users_id', $id)->first();
+        $santriProfile->kelas = $request->kelas;
+        $santriProfile->semester = $request->semester;
+        $santriProfile->tahun_ajaran = $request->tahun_ajaran;
+        $santri->save();
+        $santriProfile->save();
 
-        return redirect()->back()->withSuccess('Nilai updated successfully.');
+        return redirect()->back()->withSuccess('Profile updated successfully.');
     }
 
     /**
